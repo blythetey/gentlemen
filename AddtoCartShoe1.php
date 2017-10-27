@@ -17,7 +17,7 @@ if (isset($_GET['buy'])) {
 <body>
 <p>Your shopping cart contains <?php
 	echo count($_SESSION['cart']); ?> items.</p>
-<p><a href="CheckoutPage.php">View your cart</a></p>
+<p><a href="ShoppingCart.php">View your cart</a></p>
 
 <?php
 $items = array(

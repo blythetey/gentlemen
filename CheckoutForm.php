@@ -1,38 +1,38 @@
 <html>
 <body>
-<form action="processorder.php" method="post">
+<form action="ReceiptPage.php" method="post">
 <table border="0">
 <tr bgcolor="#cccccc">
-  <td width="150">Item</td>
-  <td width="15">Quantity</td>
+  <td width="150">Details</td>
+  <td align="center" width="15">Please fill in all the blanks:</td>
 </tr>
 <tr>
   <td>First Name</td>
-  <td align="center"><input type="text" name="tireqty" size="3"
-     maxlength="3"></td>
+  <td align="center"><input type="text" name="FirstName" size="15"
+     maxlength="20"></td>
 </tr>
 <tr>
   <td>Last Name</td>
-  <td align="center"><input type="text" name="oilqty" size="3" maxlength="3"></td>
+  <td align="center"><input type="text" name="LastName" size="15" maxlength="20"></td>
 </tr>
 <tr>
   <td>Address & Postal Code</td>
-  <td align="center"><input type="text" name="sparkqty" size="3"
-     maxlength="3"></td>
+  <td align="center"><input type="text" name="Address" size="15"
+     maxlength="20"></td>
 </tr>
 <tr>
   <td>Email</td>
-  <td align="center"><input type="text" name="sparkqty" size="3"
-     maxlength="3"></td>
+  <td align="center"><input type="text" name="Email" size="15"
+     maxlength="20"></td>
 </tr>
 <tr>
   <td>Credit Card number</td>
-  <td align="center"><input type="text" name="sparkqty" size="3"
-     maxlength="3"></td>
+  <td align="center"><input type="text" name="Creditcard" size="15"
+     maxlength="20"></td>
 </tr>
 <tr>
   <td>Secuirty code</td>
-  <td align="center"><input type="text" name="sparkqty" size="3"
+  <td align="center"><input type="text" name="SecCode" size="3"
      maxlength="3"></td>
 </tr>
 <tr>

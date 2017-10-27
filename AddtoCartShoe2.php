@@ -17,13 +17,15 @@ if (isset($_GET['buy'])) {
 <body>
 <p>Your shopping cart contains <?php
 	echo count($_SESSION['cart']); ?> items.</p>
-<p><a href="CheckoutPage.php">View your cart</a></p>
+<p><a href="ShoppingCart.php">View your cart</a></p>
 
 <?php
 $items = array(
+	'Shoe 1',
 	'Shoe 2',
-	);
-$prices = array(50);
+	'Shoe 3',
+	'Shoe 4');
+$prices = array(24.95, 1000, 19.99, 34.95);
 ?>
 <table border="1">
 	<thead>
@@ -34,13 +36,13 @@ $prices = array(50);
 	</thead>
 	<tbody>
 <?php
-for ($i=0; $i<count($items); $i++){
+//for ($i=0; $i<count($items); $i++){
 	echo "<tr>";
-	echo "<td>" .$items[$i]. "</td>";
-	echo "<td>$" .number_format($prices[$i], 2). "</td>";
-	echo "<td><a href='" .$_SERVER['PHP_SELF']. '?buy=' .$i. "'>Buy</a></td>";
+	echo "<td>" .$items[1]. "</td>";
+	echo "<td>$" .number_format($prices[1], 2). "</td>";
+	echo "<td><a href='" .$_SERVER['PHP_SELF']. '?buy=' .'1'. "'>Buy</a></td>";
 	echo "</tr>";
-}
+//}
 ?>
 	</tbody>
 </table>
