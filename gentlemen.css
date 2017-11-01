@@ -1,7 +1,7 @@
 #header
 	{
-		background-color: #1D2731;
-		color: #ffffff;
+		background-color: #FFFFFF;
+		color: #0B3C5D;
 		text-align: center;
 		padding: 10px;
 		font-family: Lucida Blackletter;
@@ -15,7 +15,7 @@
 		text-align: center;
 		position: center;
 		padding-top: 100px;
-		color: #1D2731;
+		color: #0B3C5D;
 	}
 
 .column00
@@ -27,14 +27,14 @@
 	}
 
 
-#nav a:link	{color: #FFD700;}
+#nav a:link	{color: #DCDCDC;}
 #nav a:visited {color: #D9B310;}
 #nav a:hover {color: #328CC1;}
 
 ul {
     list-style-type: none;
     margin: 0;
-    padding-left: 200px;
+    padding-left: 20px;
     overflow: auto;
     background-color: #0B3C5D;
     position: fixed;
@@ -64,22 +64,16 @@ li a:hover:not(.active) {
 
 body 	
 	{
-		color:#FFD700;
+		color: #0B3C5D;
 		font-family: Lucida Blackletter;
 		margin: 0;
 		font-size: 12px;
 	}
 
 
- #row4
- 	{
- 		 background-color: #1D2731;
- 		 color: #FFD700;
- 	}
-
-a:link {color: #D9B310;}
+a:link {color: #DCDCDC;}
 a:visited {color: #D9B310;}
-a:hover {color: #328CC1;}
+a:hover {color: #000000;}
 
 
 img:hover
@@ -89,8 +83,8 @@ img:hover
 
 .footer	
 	{
-		background-color:#1D2731;
-		color: #FFD700;
+		background-color: #0B3C5D;
+		color: #DCDCDC;
 		font-size: 10px;
 		font-family: Lucida Blackletter;
 		text-align:center;
@@ -105,7 +99,8 @@ img:hover
 		float: center;
 		margin: auto;
 		padding-top: 140px;
-		
+		overflow-x: auto;
+		border-collapse: collapse;
 	}
 
 .arrival p
@@ -113,35 +108,51 @@ img:hover
 		float: center;
 		text-align: center;
 		border: 5px solid #1D2731;
-		overflow: auto;
+		overflow: scroll;
 	}
 
 
 .column1 {
     float: left;
-    padding-top: 10px;
-    width: 50%;
-
+    width: 49.4%;
+    padding-left: 3px;
+    font-family: Lucida Calligraphy;
+    height: 400px;
 }
+  
+    
 
 .column1 p 
 	{
-		border: 1px solid #1D2731;
-		width: 100%;
+		width: 90%;
 		height: 100%;
 		float: center;
 		clear: left;
 		color: #1D2731;
+		text-align: center;
+
+	}
+
+.promoborder
+	{
+		color: black;
+	}
+
+.promocode
+	{
+		color: red;
+		border: 2px solid red;
+		width: 1000px;
+
 	}
 
 .column2 {
     float: left;
     width: 33.33%;
-    color: #D9B310;
-    height: 100%; 
-    padding-top: 20px;
+    color: #DCDCDC;
     text-align:center;
-    background-color: #1D2731;
+    background-color: #0B3C5D;
+    height: 350px;
 }
 
 .row:after {
@@ -159,6 +170,8 @@ img:hover
 	{
 		float: center;
 		text-align: center;
-		width: 100%;
+		padding-left: 20%;
+		width: 80%;
+		height: 100%;
 		columns: 100%;
 	}
