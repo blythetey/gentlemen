@@ -14,7 +14,7 @@
 	{
 		text-align: center;
 		position: center;
-		padding-top: 100px;
+		padding: 200px;
 		color: #0B3C5D;
 	}
 
@@ -22,35 +22,36 @@
 	{
 		text-align: center;
 		width: 100%;
-		background-color: #0B3C5D;
 		font-size: 15px;
 	}
 
-
-#nav a:link	{color: #DCDCDC;}
-#nav a:visited {color: #D9B310;}
-#nav a:hover {color: #328CC1;}
-
 ul {
     list-style-type: none;
-    margin: 0;
     padding-left: 20px;
-    overflow: auto;
+    overflow: hidden;
     background-color: #0B3C5D;
     position: fixed;
-    top: 98px;
+    top: 80px;
     width: 100%;
+
 }
 
-li {
-    float: left;
-}
+li:last-child
+	{
+    	padding-right: 20px;
+	}
+
+li 
+	{
+    	float: left;
+	}
+
 
 li a {
     display: block;
     text-align: center;
-    width: 100%;
-    padding: 10px 100px;
+    color: white;
+    padding: 14px 16px;
     text-decoration: none;
 }
 
@@ -58,8 +59,52 @@ li a:hover:not(.active) {
     background-color: #1D2731;
 }
 
+li a, .dropbtn {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover, .dropdown:hover .dropbtn {
+    color: gold;
+}
+
+li.dropdown {
+	display: inline-block;
+}
+
+
+.dropdown-content {
+    display: none;
+    position: relative;
+    background-color: #0B3C5D;
+    min-width: 10px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 999;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}
+
 .active {
-    background-color: #4CAF50;
+    background-color: #1D2731;
 }
 
 body 	
@@ -67,18 +112,18 @@ body
 		color: #0B3C5D;
 		font-family: Lucida Blackletter;
 		margin: 0;
-		font-size: 12px;
+		font-size: 14px;
 	}
 
 
 a:link {color: #DCDCDC;}
-a:visited {color: #D9B310;}
-a:hover {color: #000000;}
+a:visited {color: #ffffff;}
+a:hover {color: #DCDCDC;}
 
 
-img:hover
+.arrival p img:hover
 	{
-		 opacity: 0.7;
+		 opacity: 0.8;
 	}
 
 .footer	
@@ -117,7 +162,7 @@ img:hover
     width: 49.4%;
     padding-left: 3px;
     font-family: Lucida Calligraphy;
-    height: 400px;
+    height: 500px;
 }
   
     
@@ -174,4 +219,12 @@ img:hover
 		width: 80%;
 		height: 100%;
 		columns: 100%;
+	}
+
+.products
+	{
+		overflow: auto;
+		text-align: center;
+		width: 100%;
+		padding: 10% 20%;
 	}
