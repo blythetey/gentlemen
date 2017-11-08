@@ -16,26 +16,24 @@ if (isset($_GET['buy'])) {
 <title>Product catalog</title>
 </head>
 <body>
-<div id="wrapper">
-<div id="header"> <center> Gentlemen. <img src="gentlemen.png" align="center" height="auto" width="auto" alt="Homepage.html"></center>
-</div></div>
- <div class="row">
- <div class="column00"> 
- <ul>
-  <li><a href="homepage.html">Home</a></li>
-  <li><a href="Products.html">Products</a></li>
-  <li><a href="AboutUs.html">About Us</a></li>
-  <li><a href="ShoppingCart.php"> Cart</a></li>
-  </ul>
-  </div>
-</div>
+	<div id="wrapper">
+    <div id="header"> <center> Gentlemen. <img src="gentlemen.png" align="center" height="auto" width="auto" alt="Homepage.html"></center>
+    </div></div>
+	 <div class="row">
+      <div class="column00"> 
+        <ul>
+          <li><a href="Homepage.html">Home</a></li>
+          <li><a href="Products.html">Products</a></li>
+          <li><a href="AboutUs.html">About Us</a></li>
+          <li><a href="ShoppingCart.php"> Cart</a></li>
+        </ul>
+      </div>
+    </div>
 <div class="arrival">	
-
-<table align="center" class="textclr" >
-<tr><td align="center" colspan="3"><img src="sandals.jpg" alt="shoes1" style="width:500px;height:600px;"></td></tr>
+<table align="center" >
 <tr> <th align="center" colspan="3"><font size="7">Your shopping cart contains <?php 
 	echo count($_SESSION['cart']); ?> items.</font></tr> </th>
-<tr> <td link {color: black;} align="center" colspan="3"><a href="ShoppingCart.php" ><font size="7">View your cart</font></tr> </td>
+<tr> <td align="center" colspan="3"><a href="ShoppingCart.php"><font size="7">View your cart</font></tr> </td>
 
 <?php
 $items = array(
@@ -65,9 +63,9 @@ $prices = array(24.95, 1000, 19.99, 34.95,24.95, 1000, 19.99, 34.95,24.95, 1000,
 //for ($i=0; $i<count($items); $i++){
 	echo "<tr>";
 	
-	echo "<td><font size='20'>" .$items[0]. "</font></td>";
-	echo "<td><font size='20'>$" .number_format($prices[0], 2). "</font></td>";
-	echo "<td><a href='" .$_SERVER['PHP_SELF']. '?buy=' .'0'. "'><font size='7'>Add to Cart</font></a></td>";
+	echo "<td><font size='20'>" .$items[4]. "</font></td>";
+	echo "<td><font size='20'>$" .number_format($prices[4], 2). "</font></td>";
+	echo "<td><a href='" .$_SERVER['PHP_SELF']. '?buy=' .'4'. "'><font size='7'>Add to Cart</font></a></td>";
 	echo "</tr>";
 //}
 ?>

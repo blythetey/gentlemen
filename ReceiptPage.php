@@ -11,18 +11,43 @@ if (isset($_GET['empty'])) {
 ?>
 <html>
 <head>
+
   <title>Gentlemen's Shoes - Receipt Page</title>
+  <style>
+
+
+div {
+    background-color: #1D2731;
+		color: #ffffff;
+		text-align: center;
+		padding: 10px;
+		font-family: Lucida Blackletter;
+		font-size: 60px;
+		
+		width: 100%;
+}
+
+</style>
 </head>
 <body>
-<h1>Gentlemen's Shoes</h1>
+<div>
+   <center> Gentlemen. <img src="gentlemen.png" align="center" height="auto" width="auto" alt="Homepage.html"></center>
+    </div>
+
+<h1 align = 'center'>Gentlemen's Shoes</h1>
 <?php
+	date_default_timezone_set("Asia/Singapore");
+	
   // create short variable names
   $FirstName=$_POST['FirstName'];
   $LastName=$_POST['LastName'];
   $Address=$_POST['Address'];
   $Email=$_POST['Email'];
+  $Creditcard=$_POST['Creditcard'];
+  $CreditcardDate=$_POST['CreditcardDate'];
+  $SecCode=$_POST['SecCode'];
 
-  if (!$FirstName || !$LastName || !$Address || !$Email) {
+  if (!$FirstName || !$LastName || !$Address || !$Email || !$Creditcard || !$CreditcardDate || !$SecCode) {
      echo "You have not entered all the required details.<br />"
           ."Please go back and try again.";
      exit;
@@ -32,7 +57,12 @@ if (isset($_GET['empty'])) {
     $FirstName = addslashes($FirstName);
     $LastName = addslashes($LastName);
     $Address = addslashes($Address);
-    $Email = doubleval($Email);
+    $Email = addslashes($Email);
+	$Creditcard = addslashes($Creditcard);
+	$CreditcardDate = addslashes($CreditcardDate);
+	$SecCode = doubleval($SecCode);
+	$datedate = date('l jS \of F Y h:i:s A');
+	$message  = date('l jS \of F Y h:i:s A');
   }
 
   @ $db = new mysqli('localhost', 'f34ee', 'f34ee', 'f34ee');
@@ -43,7 +73,7 @@ if (isset($_GET['empty'])) {
   }
 
   $query = "insert into GentlemenCustomers values
-            ('".$FirstName."', '".$LastName."', '".$Address."', '".$Email."')";
+            ('".$FirstName."', '".$LastName."', '".$Address."', '".$Email."', '".$Creditcard."', '".$CreditcardDate."', '".$SecCode."', '".$datedate."')";
   $result = $db->query($query);
 
   if ($result) {
@@ -54,38 +84,65 @@ if (isset($_GET['empty'])) {
 
   $db->close();
 ?>
-<h2>Thank you for shopping with us!</h2>
+<h2 align = 'center'>Thank you for shopping with us!Please take a screenshot of this page as a receipt</h2>
 <?php
 $items = array(
-	'Shoe 1',
-	'Shoe 2',
-	'Shoe 3',
-	'Shoe 4');
-$prices = array(24.95, 1000, 19.99, 34.95);
+	'Sandals',
+	'Casual Running Shoes',
+	'Loafer Boat Shoes',
+	'Vintage Waterproof Boots',
+	'Street Style Shoes',
+	'Daily Shoes',
+	'Loafers ',
+	'Fashion Street Shoes',
+	'Casual Street Fashion',
+	'Formal Shoes',
+	'Vintage Formal Shoes',
+	'Classic Oxford Shoes');
+$prices = array(41.99, 142.99, 69.99, 199.99,49.99, 39.99, 55.99, 89.99,109.99, 76.99, 89.99, 199.99);
 ?>
-<table border="1">
+<table align = 'center'>
 <?php
-	date_default_timezone_set("Asia/Singapore");
+	
 	echo date_default_timezone_get();
-	echo "<p>Order processed at ".date('H:i, jS F Y')."</p>";
+	echo "<p align = 'center'>Order processed at ".date('H:i, jS F Y')."</p>";
 
-	echo "<p>Your order is as follows: </p>";
+	echo "<p align = 'center'>Your order is as follows: </p>";
 	
 	$total = 0;
 	for ($i=0; $i < count($_SESSION['cart']); $i++){
 		echo "<tr>";
 		echo "<td>" .$items[$_SESSION['cart'][$i]]. "</td>";
+		$message .= $items[$_SESSION['cart'][$i]].", ";
+		$Customermessage .= $items[$_SESSION['cart'][$i]];
 		echo "<td align='right'>$";
 		echo number_format($prices[$_SESSION['cart'][$i]], 2). "</td>";
+		$Customermessage .= "-".$items[$_SESSION['cart'][$i]].", ";
 		echo "</tr>";
 		$total = $total + $prices[$_SESSION['cart'][$i]];
 	}
 
+	 @ $db1 = new mysqli('localhost', 'f34ee', 'f34ee', 'f34ee');
+
+	if (mysqli_connect_errno()) {
+		echo "Error: Could not connect to database.  Please try again later.";
+		exit;
+	}
+	$message1 = doubleval($message);
+	$query1 = "insert into order_items values
+            ('".$message1."')";
+	$result1 = $db->query($query1);
 	
+	if ($result1) {
+      //echo  $db->affected_rows." book inserted into database.";
+	} else {
+		echo "An error has occurred.  The item was not added.";
+	}
+
 	//echo "Subtotal: $".number_format($totalamount,2)."<br />";
 
-	$taxrate = 0.10;  // local sales tax is 10%
-	$totalamount = $totalamount * (1 + $taxrate);
+	//$taxrate = 0.10;  // local sales tax is 10%
+	//$totalamount = $totalamount * (1 + $taxrate);
 	//echo "Total including tax: $".number_format($totalamount,2)."<br />";
 
 	if($find == "a") {
@@ -99,6 +156,19 @@ $prices = array(24.95, 1000, 19.99, 34.95);
 	} else {
 	 // echo "<p>We do not know how this customer found us.</p>";
 	}
+
+$to      = 'f34ee@localhost';
+$subject = 'the subject';
+
+$headers = 'From: f34ee@localhost' . "\r\n" .
+    'Reply-To: f34ee@localhost' . "\r\n" .
+    'X-Mailer: PHP/' . phpversion();
+
+mail($to, $subject, $message, $headers,'-ff34ee@localhost');
+//echo ("mail sent to : ".$to);
+
+mail($to, $subject, $message, $headers,'-shaunpwl@gmail.com');
+//echo ("mail sent to : ".$to);
 
 ?>
 <tr>
